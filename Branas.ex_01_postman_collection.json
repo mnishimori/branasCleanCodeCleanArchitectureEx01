@@ -1,0 +1,56 @@
+{
+	"info": {
+		"_postman_id": "828bee67-2058-4011-8a8f-999d526747da",
+		"name": "Branas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9250904"
+	},
+	"item": [
+		{
+			"name": "Post account",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"ma_nishimori@hotmail.com.br\",\n    \"name\": \"Marcelo Akio Nishimori\",\n    \"cpf\": \"13357149010\",\n    \"carPlate\": \"ABC1A23\",\n    \"isPassenger\": false,\n    \"isDriver\": false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/accounts",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get account by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/accounts/2f4b557c-0d3f-48ba-bce5-5938908352ba",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"accounts",
+						"2f4b557c-0d3f-48ba-bce5-5938908352ba"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
