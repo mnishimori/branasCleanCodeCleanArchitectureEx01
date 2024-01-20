@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.when;
 
 import com.digitalride.digitalride.account.model.service.AccountService;
+import com.digitalride.digitalride.shared.presentation.exception.DuplicatedException;
 import java.util.Optional;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -34,6 +35,6 @@ class AccountEmailAlreadyExistsValidatorTest {
     var account = createAccount();
     when(accountService.findByEmail(account.getEmail())).thenReturn(Optional.of(account));
 
-    assertThrows(RuntimeException.class, () -> accountEmailAlreadyExistsValidator.validate(account.getEmail()));
+    assertThrows(DuplicatedException.class, () -> accountEmailAlreadyExistsValidator.validate(account.getEmail()));
   }
 }

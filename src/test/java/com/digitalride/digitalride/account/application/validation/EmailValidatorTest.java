@@ -1,8 +1,10 @@
 package com.digitalride.digitalride.account.application.validation;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.digitalride.digitalride.account.testData.AccountTestData;
+import com.digitalride.digitalride.shared.presentation.exception.ValidatorException;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
@@ -26,6 +28,6 @@ class EmailValidatorTest {
   @NullAndEmptySource
   @ValueSource(strings = {"email.domain.com", "@", "1234"})
   void shouldThrowsExceptionWhenEmailIsNullOrEmpty(String email) {
-    assertThrows(RuntimeException.class, () -> emailValidator.validate(email));
+    assertThrows(ValidatorException.class, () -> emailValidator.validate(email));
   }
 }

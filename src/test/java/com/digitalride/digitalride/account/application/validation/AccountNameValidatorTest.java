@@ -1,7 +1,9 @@
 package com.digitalride.digitalride.account.application.validation;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import com.digitalride.digitalride.shared.presentation.exception.ValidatorException;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
@@ -25,6 +27,6 @@ class AccountNameValidatorTest {
   @NullAndEmptySource
   @ValueSource(strings = {"1", "123@", "@"})
   void shouldThrowsExceptionWhenNameIsNullOrEmpty(String name) {
-    assertThrows(RuntimeException.class, () -> accountNameValidator.validate(name));
+    assertThrows(ValidatorException.class, () -> accountNameValidator.validate(name));
   }
 }

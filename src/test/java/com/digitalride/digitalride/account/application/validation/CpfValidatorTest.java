@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.digitalride.digitalride.account.testData.AccountTestData;
+import com.digitalride.digitalride.shared.presentation.exception.ValidatorException;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
@@ -29,6 +30,6 @@ class CpfValidatorTest {
       "33333333333", "44444444444", "55555555555", "66666666666", "77777777777", "88888888888",
       "99999999999", "00000000000" })
   void shouldThrowsExceptionWhenCpfIsNullOrEmpty(String cpf) {
-    assertThrows(RuntimeException.class, () -> cpfValidator.validate(cpf));
+    assertThrows(ValidatorException.class, () -> cpfValidator.validate(cpf));
   }
 }

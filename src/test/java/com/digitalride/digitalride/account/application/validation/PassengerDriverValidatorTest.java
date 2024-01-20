@@ -4,9 +4,9 @@ import static com.digitalride.digitalride.account.testData.AccountTestData.creat
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import com.digitalride.digitalride.shared.presentation.exception.ValidatorException;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.jupiter.params.ParameterizedTest;
 import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 
@@ -27,6 +27,6 @@ class PassengerDriverValidatorTest {
     var account = createAccount();
     account.setIsPassenger(true);
     account.setIsDriver(true);
-    assertThrows(RuntimeException.class, () -> passengerDriverValidator.validate(account));
+    assertThrows(ValidatorException.class, () -> passengerDriverValidator.validate(account));
   }
 }
