@@ -1,29 +1,38 @@
 package com.digitalride.digitalride.account.application.validation;
 
+import static com.digitalride.digitalride.account.model.message.AccountMessages.ACCOUNT_CPF_INVALID;
+
+import com.digitalride.digitalride.shared.presentation.exception.ValidatorException;
 import org.springframework.stereotype.Component;
+import org.springframework.validation.FieldError;
 
 @Component
 public class CpfValidator {
 
   public void validate(String rawCpf) {
     if (rawCpf == null || rawCpf.isEmpty()) {
-      throw new RuntimeException("CPF is invalid.");
+      throwCpfInvalidException(rawCpf);
     }
     String cpf = removeNonDigits(rawCpf);
     if (isInvalidLength(cpf)) {
-      throw new RuntimeException("CPF is invalid.");
+      throwCpfInvalidException(cpf);
     }
 
     if (hasAllDigitsEqual(cpf)) {
-      throw new RuntimeException("CPF is invalid.");
+      throwCpfInvalidException(cpf);
     }
 
     int digit1 = calculateDigit(cpf, 10);
     int digit2 = calculateDigit(cpf, 11);
 
     if (!extractDigit(cpf).equals(String.valueOf(digit1) + digit2)) {
-      throw new RuntimeException("CPF is invalid.");
+      throwCpfInvalidException(cpf);
     };
+  }
+
+  private void throwCpfInvalidException(String cpf) {
+    throw new ValidatorException(new FieldError(this.getClass().getSimpleName(), "CPF",
+        ACCOUNT_CPF_INVALID.formatted(cpf)));
   }
 
   private static String removeNonDigits(String cpf) {
