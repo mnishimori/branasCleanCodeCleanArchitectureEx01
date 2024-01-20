@@ -39,7 +39,6 @@ class PostAccountApiTest {
   private final MockMvc mockMvc;
   private final EntityManager entityManager;
 
-
   @Autowired
   PostAccountApiTest(MockMvc mockMvc, EntityManager entityManager) {
     this.mockMvc = mockMvc;
