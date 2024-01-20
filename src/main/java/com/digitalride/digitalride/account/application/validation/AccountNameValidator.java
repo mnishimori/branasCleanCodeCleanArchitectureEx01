@@ -11,6 +11,10 @@ import org.springframework.validation.FieldError;
 public class AccountNameValidator {
 
   public void validate(String name) {
+    if (name == null || name.isEmpty()) {
+      throw new ValidatorException(new FieldError(this.getClass().getSimpleName(), "name",
+          ACCOUNT_NAME_INVALID.formatted(name)));
+    }
     var namePattern = Pattern.compile(".*[a-zA-Z].*");
     var nameMatcher = namePattern.matcher(name);
     if (!nameMatcher.matches()) {

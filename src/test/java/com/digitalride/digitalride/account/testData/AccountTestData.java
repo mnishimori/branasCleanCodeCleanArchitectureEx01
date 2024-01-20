@@ -9,7 +9,7 @@ public final class AccountTestData {
   public static final String DEFAULT_ACCOUNT_CPF = "07427491009";
   public static final String DEFAULT_ACCOUNT_CAR_PLATE = "ABC1023";
   public static final String DEFAULT_ACCOUNT_IS_PASSENGER = "false";
-  public static final String DEFAULT_ACCOUNT_IS_DRIVER = "false";
+  public static final String DEFAULT_ACCOUNT_IS_DRIVER = "true";
 
   public static final String ACCOUNT_TEMPLATE_INPUT = """
       { "email": "%s", "name": "%s", "cpf": "%s", "carPlate": "%s", "isPassenger": "%s", "isDriver": "%s"}""";

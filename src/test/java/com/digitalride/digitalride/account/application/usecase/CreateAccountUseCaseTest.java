@@ -11,6 +11,7 @@ import com.digitalride.digitalride.account.application.validation.AccountNameVal
 import com.digitalride.digitalride.account.application.validation.CarPlateValidator;
 import com.digitalride.digitalride.account.application.validation.CpfValidator;
 import com.digitalride.digitalride.account.application.validation.EmailValidator;
+import com.digitalride.digitalride.account.application.validation.PassengerDriverValidator;
 import com.digitalride.digitalride.account.model.service.AccountService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -32,6 +33,8 @@ class CreateAccountUseCaseTest {
   private CpfValidator cpfValidator;
   @Mock
   private CarPlateValidator carPlateValidator;
+  @Mock
+  private PassengerDriverValidator passengerDriverValidator;
   @InjectMocks
   private CreateAccountUseCase createAccountUseCase;
 
@@ -50,5 +53,6 @@ class CreateAccountUseCaseTest {
     verify(accountEmailAlreadyExistsValidator).validate(accountToSave.getEmail());
     verify(cpfValidator).validate(accountToSave.getCpf());
     verify(carPlateValidator).validate(accountToSave.getCarPlate());
+    verify(passengerDriverValidator).validate(accountToSave);
   }
 }

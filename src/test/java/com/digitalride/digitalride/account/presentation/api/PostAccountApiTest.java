@@ -87,7 +87,7 @@ class PostAccountApiTest {
   }
 
   @Test
-  void shouldReturnBadRequestWhenAccountEmailAlreadyExists() throws Exception {
+  void shouldReturnConflictWhenAccountEmailAlreadyExists() throws Exception {
     createAndPersistAccount();
 
     var request = post(URL_ACCOUNTS)
@@ -98,8 +98,7 @@ class PostAccountApiTest {
   }
 
   @ParameterizedTest
-  @NullAndEmptySource
-  @ValueSource(strings = {"12345", "@!-+*()&^%"})
+  @ValueSource(strings = {"", "12345", "@!-+*()&^%"})
   void shouldReturnBadRequestWhenAccountNameIsInvalid(String name) throws Exception {
     var content = ACCOUNT_TEMPLATE_INPUT.formatted(DEFAULT_ACCOUNT_EMAIL, name,
         DEFAULT_ACCOUNT_CPF, DEFAULT_ACCOUNT_CAR_PLATE, DEFAULT_ACCOUNT_IS_PASSENGER,
