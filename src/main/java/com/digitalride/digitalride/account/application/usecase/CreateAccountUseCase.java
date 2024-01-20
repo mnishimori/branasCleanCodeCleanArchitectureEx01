@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class CreateAccountUseCase {
+
   private final AccountService accountService;
   private final AccountNameValidator accountNameValidator;
   private final EmailValidator emailValidator;
@@ -22,7 +23,8 @@ public class CreateAccountUseCase {
   private final AccountEmailAlreadyExistsValidator accountEmailAlreadyExistsValidator;
 
   public CreateAccountUseCase(AccountService accountService,
-      AccountEmailAlreadyExistsValidator accountEmailAlreadyExistsValidator, AccountNameValidator accountNameValidator,
+      AccountEmailAlreadyExistsValidator accountEmailAlreadyExistsValidator,
+      AccountNameValidator accountNameValidator,
       EmailValidator emailValidator, CpfValidator cpfValidator, CarPlateValidator carPlateValidator,
       PassengerDriverValidator passengerDriverValidator) {
     this.accountService = accountService;
