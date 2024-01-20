@@ -1,0 +1,20 @@
+version: '3.1'
+
+services:
+  digitalride-db:
+    container_name: postgresql-digitalride
+    image: postgres:15.1
+    environment:
+      POSTGRES_DB: digitalride-db
+      POSTGRES_USER: digitalride-postgres-user
+      POSTGRES_PASSWORD: digitalride-postgres-pwd
+    ports:
+      - 5432:5432
+    volumes:
+      - /var/lib/postgres
+    networks:
+      - postgres-compose-network
+
+networks: 
+  postgres-compose-network:
+    driver: bridge

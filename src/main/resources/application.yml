@@ -1,0 +1,17 @@
+spring:
+  jpa:
+    show-sql: true
+    database: postgresql
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/digitalride-db
+    username: digitalride-postgres-user
+    password: digitalride-postgres-pwd
+  flyway:
+    baseline-on-migrate: true
+    schemas: 'flyway'
+
+server:
+  port: 8080
+  error:
+    include-stacktrace: never
