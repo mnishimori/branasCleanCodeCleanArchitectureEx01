@@ -39,6 +39,11 @@ O modelo de dados está disponível em https://github.com/rodrigobranas/cccat15_
 8. JUnit
 9. Docker e docker-compose
 
+
+# Architecture - Entity Relashionship Diagram
+
+![architecture - exercicio 01 - 2024-01-20_20-48.png](..%2F..%2F..%2F..%2F..%2F..%2FDownloads%2FBranas%2Farchitecture%20-%20exercicio%2001%20-%202024-01-20_20-48.png)
+
 # Setup do Projeto
 
 Para realizar o setup do projeto é necessário possuir o Java 17, docker 24 e docker-compose 1.29 instalado em sua máquina.
@@ -50,11 +55,13 @@ Para iniciar o projeto, basta executar o Spring Boot Run no IntelliJ.
 
 # Testes de unidade
 
-Task cadastrada como "test".
+* Task cadastrada como "test".
+* Testes do service, validators e usecases do SignUp e GetAccountById.
 
 # Testes de integração
 
-Task cadastrada como "integrationTest".
+* Task cadastrada como "integrationTest".
+* Testes de api do SignUp e GetAccountById.
 
 # Entregas
 
