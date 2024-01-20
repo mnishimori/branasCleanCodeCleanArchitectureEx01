@@ -24,13 +24,8 @@ class CarPlateValidatorTest {
 
   @ParameterizedTest
   @NullAndEmptySource
-  void shouldThrowsExceptionWhenCarPlateIsNullOrEmpty(String carPlate) {
-    assertThrows(RuntimeException.class, () -> carPlateValidator.validate(carPlate));
-  }
-
-  @ParameterizedTest
   @ValueSource(strings = {"email@domain.com", "@", "1234", "AB-1234", "AB1234", ""})
-  void shouldThrowsExceptionWhenCarPlateIsInvalid(String carPlate) {
+  void shouldThrowsExceptionWhenCarPlateIsNullOrEmpty(String carPlate) {
     assertThrows(RuntimeException.class, () -> carPlateValidator.validate(carPlate));
   }
 }

@@ -25,15 +25,10 @@ class CpfValidatorTest {
 
   @ParameterizedTest
   @NullAndEmptySource
-  void shouldThrowsExceptionWhenCpfIsNullOrEmpty(String cpf) {
-    assertThrows(RuntimeException.class, () -> cpfValidator.validate(cpf));
-  }
-
-  @ParameterizedTest
-  @ValueSource(strings = {"", "abc", "12345678901", "1234", "11111111111", "22222222222",
+  @ValueSource(strings = {"abc", "12345678901", "1234", "11111111111", "22222222222",
       "33333333333", "44444444444", "55555555555", "66666666666", "77777777777", "88888888888",
       "99999999999", "00000000000" })
-  void shouldThrowsExceptionWhenCpfIsInvalid(String cpf) {
+  void shouldThrowsExceptionWhenCpfIsNullOrEmpty(String cpf) {
     assertThrows(RuntimeException.class, () -> cpfValidator.validate(cpf));
   }
 }

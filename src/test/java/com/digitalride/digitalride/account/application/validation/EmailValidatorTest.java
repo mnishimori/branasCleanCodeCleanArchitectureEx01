@@ -24,13 +24,8 @@ class EmailValidatorTest {
 
   @ParameterizedTest
   @NullAndEmptySource
+  @ValueSource(strings = {"email.domain.com", "@", "1234"})
   void shouldThrowsExceptionWhenEmailIsNullOrEmpty(String email) {
-    assertThrows(RuntimeException.class, () -> emailValidator.validate(email));
-  }
-
-  @ParameterizedTest
-  @ValueSource(strings = {"", "email.domain.com", "@", "1234"})
-  void shouldThrowsExceptionWhenEmailIsInvalid(String email) {
     assertThrows(RuntimeException.class, () -> emailValidator.validate(email));
   }
 }

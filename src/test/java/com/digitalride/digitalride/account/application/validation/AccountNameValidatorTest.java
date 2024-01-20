@@ -23,13 +23,8 @@ class AccountNameValidatorTest {
 
   @ParameterizedTest
   @NullAndEmptySource
+  @ValueSource(strings = {"1", "123@", "@"})
   void shouldThrowsExceptionWhenNameIsNullOrEmpty(String name) {
     assertThrows(RuntimeException.class, () -> accountNameValidator.validate(name));
-  }
-
-  @ParameterizedTest
-  @ValueSource(strings = {"1", "123@", "@"})
-  void shouldThrowsExceptionWhenNameIsInvalid(String name) {
-    assertThrows(RuntimeException.class, () ->  accountNameValidator.validate(name));
   }
 }

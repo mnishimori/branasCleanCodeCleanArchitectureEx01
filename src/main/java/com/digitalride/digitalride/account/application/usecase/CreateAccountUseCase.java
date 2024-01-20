@@ -41,9 +41,9 @@ public class CreateAccountUseCase {
   }
 
   private void validate(Account account) {
-    accountNameValidator.validate(account.getName());
     emailValidator.validate(account.getEmail());
     accountEmailAlreadyExistsValidator.validate(account.getEmail());
+    accountNameValidator.validate(account.getName());
     cpfValidator.validate(account.getCpf());
     carPlateValidator.validate(account.getCarPlate());
     passengerDriverValidator.validate(account);
