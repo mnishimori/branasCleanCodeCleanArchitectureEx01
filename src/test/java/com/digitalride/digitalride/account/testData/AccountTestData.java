@@ -4,6 +4,7 @@ import com.digitalride.digitalride.account.model.entity.Account;
 import java.util.UUID;
 
 public final class AccountTestData {
+  public static final UUID DEFAULT_ACCOUNT_UUID = UUID.randomUUID();
   public static final String DEFAULT_ACCOUNT_EMAIL = "email@domail.com";
   public static final String DEFAULT_ACCOUNT_NAME = "Fulano de Tal";
   public static final String DEFAULT_ACCOUNT_CPF = "07427491009";

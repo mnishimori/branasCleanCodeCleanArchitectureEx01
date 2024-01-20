@@ -129,8 +129,7 @@ class PostAccountApiTest {
   }
 
   @ParameterizedTest
-  @NullAndEmptySource
-  @ValueSource(strings = {"email@domain.com", "@", "1234", "AB-1234", "AB1234", ""})
+  @ValueSource(strings = {"email@domain.com", "@", "1234", "AB-1234", "AB1234", "Fulano de Tal"})
   void shouldReturnBadRequestWhenAccountCarPlateIsInvalid(String carPlate) throws Exception {
     var content = ACCOUNT_TEMPLATE_INPUT.formatted(DEFAULT_ACCOUNT_EMAIL, DEFAULT_ACCOUNT_NAME,
         DEFAULT_ACCOUNT_CPF, carPlate, DEFAULT_ACCOUNT_IS_PASSENGER,

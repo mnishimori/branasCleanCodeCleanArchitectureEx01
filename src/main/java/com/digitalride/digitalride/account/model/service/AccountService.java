@@ -3,6 +3,7 @@ package com.digitalride.digitalride.account.model.service;
 import com.digitalride.digitalride.account.infrastructure.repository.AccountRepository;
 import com.digitalride.digitalride.account.model.entity.Account;
 import java.util.Optional;
+import java.util.UUID;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -20,5 +21,9 @@ public class AccountService {
 
   public Optional<Account> findByEmail(String email) {
     return accountRepository.findByEmail(email);
+  }
+
+  public Optional<Account> findById(UUID uuid) {
+    return accountRepository.findById(uuid);
   }
 }
