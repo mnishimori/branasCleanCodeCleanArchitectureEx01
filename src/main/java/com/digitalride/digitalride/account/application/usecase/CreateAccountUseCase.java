@@ -47,7 +47,9 @@ public class CreateAccountUseCase {
     accountEmailAlreadyExistsValidator.validate(account.getEmail());
     accountNameValidator.validate(account.getName());
     cpfValidator.validate(account.getCpf());
-    carPlateValidator.validate(account.getCarPlate());
+    if (account.getIsDriver()) {
+      carPlateValidator.validate(account.getCarPlate());
+    }
     passengerDriverValidator.validate(account);
   }
 }
